@@ -60,93 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 121);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 121:
-/***/ (function(module, exports, __webpack_require__) {
-
-const mapboxgl = __webpack_require__(64);
-const buildMarker = __webpack_require__(122);
-
-
-mapboxgl.accessToken = "pk.eyJ1Ijoia2F0YmFsbG8iLCJhIjoiY2phOXVpYzM0MGt5cTJ3cTkyaXZlOTB1ayJ9.-Yg3Z6jWCdF_2FPSEWkIRQ";
-
-const fullstackCoords = [-74.009, 40.705] // NY
-// const fullstackCoords = [-87.6320523, 41.8881084] // CHI
-
-const map = new mapboxgl.Map({
-  container: "map",
-  center: fullstackCoords, // FullStack coordinates
-  zoom: 12, // starting zoom
-  style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
-});
-
-const marker = buildMarker("activities", fullstackCoords);
-marker.addTo(map);
-
-
-/***/ }),
-
-/***/ 122:
-/***/ (function(module, exports, __webpack_require__) {
-
-const { Marker } = __webpack_require__(64);
-
-const iconURLs = {
-  hotels: "http://i.imgur.com/D9574Cu.png",
-  restaurants: "http://i.imgur.com/cqR6pUI.png",
-  activities: "http://i.imgur.com/WbMOfMl.png"
-};
-
-const buildMarker = (type, coords) => {
-  if (!iconURLs.hasOwnProperty(type)) {
-    type = "activities";
-  }
-  const markerEl = document.createElement("div");
-  markerEl.style.backgroundSize = "contain";
-  markerEl.style.width = "32px";
-  markerEl.style.height = "37px";
-  markerEl.style.backgroundImage = `url(${iconURLs[type]})`;
-  return new Marker(markerEl).setLngLat(coords);
-};
-
-module.exports = buildMarker;
-
-
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 64:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var require;var require;(function(f){if(true){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.mapboxgl = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -696,9 +614,86 @@ module.exports={"$version":8,"$root":{"version":{"required":true,"type":"enum","
 
 
 //# sourceMappingURL=mapbox-gl.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapboxgl = __webpack_require__(0);
+const buildMarker = __webpack_require__(3);
+
+
+mapboxgl.accessToken = "pk.eyJ1Ijoia2F0YmFsbG8iLCJhIjoiY2phOXVpYzM0MGt5cTJ3cTkyaXZlOTB1ayJ9.-Yg3Z6jWCdF_2FPSEWkIRQ";
+
+const fullstackCoords = [-74.009, 40.705] // NY
+// const fullstackCoords = [-87.6320523, 41.8881084] // CHI
+
+const map = new mapboxgl.Map({
+  container: "map",
+  center: fullstackCoords, // FullStack coordinates
+  zoom: 12, // starting zoom
+  style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
+});
+
+const marker = buildMarker("activities", fullstackCoords);
+marker.addTo(map);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { Marker } = __webpack_require__(0);
+
+const iconURLs = {
+  hotels: "http://i.imgur.com/D9574Cu.png",
+  restaurants: "http://i.imgur.com/cqR6pUI.png",
+  activities: "http://i.imgur.com/WbMOfMl.png"
+};
+
+const buildMarker = (type, coords) => {
+  if (!iconURLs.hasOwnProperty(type)) {
+    type = "activities";
+  }
+  const markerEl = document.createElement("div");
+  markerEl.style.backgroundSize = "contain";
+  markerEl.style.width = "32px";
+  markerEl.style.height = "37px";
+  markerEl.style.backgroundImage = `url(${iconURLs[type]})`;
+  return new Marker(markerEl).setLngLat(coords);
+};
+
+module.exports = buildMarker;
+
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=bundle.js.map
