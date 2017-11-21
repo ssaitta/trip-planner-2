@@ -4,7 +4,8 @@ const bodyParser= require('body-parser')
 const path = require('path')
 const app = express()
 
-const db = require("./models");
+const models = require("./models");
+const db = models.db
 
 app.use(morgan('dev'))
 
