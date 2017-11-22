@@ -53,6 +53,21 @@ fetch('/api')
 
 }).catch(console.error.bind(console))
 
+const hotelOptions = document.getElementById("hotels-choices")
+
+hotelOptions.addEventListener('change',()=>{
+	console.log(hotelOptions.selectedIndex)
+	console.log(hotelOptions.item(hotelOptions.selectedIndex))
+	return hotelOptions.item(hotelOptions.selectedIndex)
+})
+
+
+
+document.getElementById("hotels-add")
+	.addEventListener('click', ()=>{
+		
+	})
+
 
 
 
