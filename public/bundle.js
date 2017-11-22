@@ -640,6 +640,56 @@ const marker = buildMarker("activities", fullstackCoords);
 marker.addTo(map);
 
 
+// FETCH allhotels
+fetch('/api')
+.then((allThings)=>{
+	// console.log(hotels)
+	return allThings.json()
+})
+.then((allThings)=>{
+	// console.log(hotels)
+	const allHotels = document.getElementById("hotels-choices")
+	const allAct = document.getElementById("activities-choices")
+	const allRest = document.getElementById("restaurants-choices")
+
+	allThings[0].forEach( function (hotel){
+			const option = document.createElement('option')
+			option.label = hotel.name
+			option.value = hotel.id
+			allHotels.append(option)
+	})
+
+	allThings[1].forEach( function (act){
+			const option = document.createElement('option')
+			option.label = act.name
+			option.value = act.id
+			allAct.append(option)
+	})
+
+	allThings[2].forEach( function (rest){
+			const option = document.createElement('option')
+			option.label = rest.name
+			option.value = rest.id
+			allRest.append(option)
+	})
+
+}).catch(console.error.bind(console))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {

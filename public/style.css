@@ -99,5 +99,7 @@ select {
   background: #286090;
 }
 
+/*button:focus { outline:0 !important; }*/
+
 
 
